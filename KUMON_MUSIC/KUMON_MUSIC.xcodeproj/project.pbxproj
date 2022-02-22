@@ -1,0 +1,885 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C37C254E5233AF31523F6B6 /* Pods_KUMON_MUSIC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABCDBBB8A01EF3B0AC51DD5 /* Pods_KUMON_MUSIC.framework */; };
+		6ADFD911D839B8ABB3A4B69F /* Pods_KUMON_MUSIC_KUMON_MUSICUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666BF4C1F309FDCEC784F4E2 /* Pods_KUMON_MUSIC_KUMON_MUSICUITests.framework */; };
+		79A74C1627C3528900A91357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C1527C3528900A91357 /* AppDelegate.swift */; };
+		79A74C1827C3528900A91357 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C1727C3528900A91357 /* SceneDelegate.swift */; };
+		79A74C1D27C3528900A91357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A74C1B27C3528900A91357 /* Main.storyboard */; };
+		79A74C1F27C3528A00A91357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79A74C1E27C3528A00A91357 /* Assets.xcassets */; };
+		79A74C2227C3528A00A91357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A74C2027C3528A00A91357 /* LaunchScreen.storyboard */; };
+		79A74C2D27C3528A00A91357 /* KUMON_MUSICTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C2C27C3528A00A91357 /* KUMON_MUSICTests.swift */; };
+		79A74C3727C3528A00A91357 /* KUMON_MUSICUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C3627C3528A00A91357 /* KUMON_MUSICUITests.swift */; };
+		79A74C3927C3528A00A91357 /* KUMON_MUSICUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C3827C3528A00A91357 /* KUMON_MUSICUITestsLaunchTests.swift */; };
+		79A74C4927C3535600A91357 /* MusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C4827C3535600A91357 /* MusicTableViewController.swift */; };
+		79A74C4D27C3537500A91357 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C4C27C3537500A91357 /* PlayerViewController.swift */; };
+		79A74C5027C354CE00A91357 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C4F27C354CE00A91357 /* Music.swift */; };
+		79A74C5327C35A4300A91357 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C5227C35A4300A91357 /* MusicViewModel.swift */; };
+		79A74C5627C35B3B00A91357 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A74C5527C35B3B00A91357 /* APIManager.swift */; };
+		79E9C3A927C4756800814E10 /* TEST003.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E9C3A227C4756700814E10 /* TEST003.png */; };
+		79E9C3AA27C4756800814E10 /* TEST002.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E9C3A327C4756700814E10 /* TEST002.png */; };
+		79E9C3AB27C4756800814E10 /* TEST001.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E9C3A427C4756800814E10 /* TEST001.png */; };
+		79E9C3AC27C4756800814E10 /* TEST001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79E9C3A627C4756800814E10 /* TEST001.mp3 */; };
+		79E9C3AD27C4756800814E10 /* TEST003.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79E9C3A727C4756800814E10 /* TEST003.mp3 */; };
+		79E9C3AE27C4756800814E10 /* TEST002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79E9C3A827C4756800814E10 /* TEST002.mp3 */; };
+		79E9C3B027C4C02C00814E10 /* SelectedMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E9C3AF27C4C02C00814E10 /* SelectedMusicViewController.swift */; };
+		D0DD863A9BC5933079748B69 /* Pods_KUMON_MUSICTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B025C437F8FCDCC7357802F /* Pods_KUMON_MUSICTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79A74C2927C3528A00A91357 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79A74C0A27C3528900A91357 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79A74C1127C3528900A91357;
+			remoteInfo = KUMON_MUSIC;
+		};
+		79A74C3327C3528A00A91357 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79A74C0A27C3528900A91357 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79A74C1127C3528900A91357;
+			remoteInfo = KUMON_MUSIC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		014D116D3B1E7645ABDE5A59 /* Pods-KUMON_MUSICTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KUMON_MUSICTests.release.xcconfig"; path = "Target Support Files/Pods-KUMON_MUSICTests/Pods-KUMON_MUSICTests.release.xcconfig"; sourceTree = "<group>"; };
+		0ABCDBBB8A01EF3B0AC51DD5 /* Pods_KUMON_MUSIC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KUMON_MUSIC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28C84DF89513AAC674576B93 /* Pods-KUMON_MUSIC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KUMON_MUSIC.release.xcconfig"; path = "Target Support Files/Pods-KUMON_MUSIC/Pods-KUMON_MUSIC.release.xcconfig"; sourceTree = "<group>"; };
+		3B025C437F8FCDCC7357802F /* Pods_KUMON_MUSICTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KUMON_MUSICTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DD8CE7A9729F07C12D9B861 /* Pods-KUMON_MUSIC-KUMON_MUSICUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KUMON_MUSIC-KUMON_MUSICUITests.release.xcconfig"; path = "Target Support Files/Pods-KUMON_MUSIC-KUMON_MUSICUITests/Pods-KUMON_MUSIC-KUMON_MUSICUITests.release.xcconfig"; sourceTree = "<group>"; };
+		45875A500DF589D0684B27B7 /* Pods-KUMON_MUSICTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KUMON_MUSICTests.debug.xcconfig"; path = "Target Support Files/Pods-KUMON_MUSICTests/Pods-KUMON_MUSICTests.debug.xcconfig"; sourceTree = "<group>"; };
+		520249EEDCF74CB3B332BA3C /* Pods-KUMON_MUSIC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KUMON_MUSIC.debug.xcconfig"; path = "Target Support Files/Pods-KUMON_MUSIC/Pods-KUMON_MUSIC.debug.xcconfig"; sourceTree = "<group>"; };
+		666BF4C1F309FDCEC784F4E2 /* Pods_KUMON_MUSIC_KUMON_MUSICUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KUMON_MUSIC_KUMON_MUSICUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A74C1227C3528900A91357 /* KUMON_MUSIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KUMON_MUSIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A74C1527C3528900A91357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		79A74C1727C3528900A91357 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		79A74C1C27C3528900A91357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79A74C1E27C3528A00A91357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79A74C2127C3528A00A91357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79A74C2327C3528A00A91357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79A74C2827C3528A00A91357 /* KUMON_MUSICTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KUMON_MUSICTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A74C2C27C3528A00A91357 /* KUMON_MUSICTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KUMON_MUSICTests.swift; sourceTree = "<group>"; };
+		79A74C3227C3528A00A91357 /* KUMON_MUSICUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KUMON_MUSICUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A74C3627C3528A00A91357 /* KUMON_MUSICUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KUMON_MUSICUITests.swift; sourceTree = "<group>"; };
+		79A74C3827C3528A00A91357 /* KUMON_MUSICUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KUMON_MUSICUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		79A74C4827C3535600A91357 /* MusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewController.swift; sourceTree = "<group>"; };
+		79A74C4C27C3537500A91357 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		79A74C4F27C354CE00A91357 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		79A74C5227C35A4300A91357 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		79A74C5527C35B3B00A91357 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		79E9C3A227C4756700814E10 /* TEST003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TEST003.png; sourceTree = "<group>"; };
+		79E9C3A327C4756700814E10 /* TEST002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TEST002.png; sourceTree = "<group>"; };
+		79E9C3A427C4756800814E10 /* TEST001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TEST001.png; sourceTree = "<group>"; };
+		79E9C3A627C4756800814E10 /* TEST001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TEST001.mp3; sourceTree = "<group>"; };
+		79E9C3A727C4756800814E10 /* TEST003.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TEST003.mp3; sourceTree = "<group>"; };
+		79E9C3A827C4756800814E10 /* TEST002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TEST002.mp3; sourceTree = "<group>"; };
+		79E9C3AF27C4C02C00814E10 /* SelectedMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMusicViewController.swift; sourceTree = "<group>"; };
+		926E768582A5F92C8EAC3266 /* Pods-KUMON_MUSIC-KUMON_MUSICUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KUMON_MUSIC-KUMON_MUSICUITests.debug.xcconfig"; path = "Target Support Files/Pods-KUMON_MUSIC-KUMON_MUSICUITests/Pods-KUMON_MUSIC-KUMON_MUSICUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79A74C0F27C3528900A91357 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C37C254E5233AF31523F6B6 /* Pods_KUMON_MUSIC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A74C2527C3528A00A91357 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0DD863A9BC5933079748B69 /* Pods_KUMON_MUSICTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A74C2F27C3528A00A91357 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ADFD911D839B8ABB3A4B69F /* Pods_KUMON_MUSIC_KUMON_MUSICUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		29A355765D55E946C435FFD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0ABCDBBB8A01EF3B0AC51DD5 /* Pods_KUMON_MUSIC.framework */,
+				666BF4C1F309FDCEC784F4E2 /* Pods_KUMON_MUSIC_KUMON_MUSICUITests.framework */,
+				3B025C437F8FCDCC7357802F /* Pods_KUMON_MUSICTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79A74C0927C3528900A91357 = {
+			isa = PBXGroup;
+			children = (
+				79A74C1427C3528900A91357 /* KUMON_MUSIC */,
+				79A74C2B27C3528A00A91357 /* KUMON_MUSICTests */,
+				79A74C3527C3528A00A91357 /* KUMON_MUSICUITests */,
+				79A74C1327C3528900A91357 /* Products */,
+				D9DE430AC1A333817FC6A4F3 /* Pods */,
+				29A355765D55E946C435FFD5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		79A74C1327C3528900A91357 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C1227C3528900A91357 /* KUMON_MUSIC.app */,
+				79A74C2827C3528A00A91357 /* KUMON_MUSICTests.xctest */,
+				79A74C3227C3528A00A91357 /* KUMON_MUSICUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79A74C1427C3528900A91357 /* KUMON_MUSIC */ = {
+			isa = PBXGroup;
+			children = (
+				79E9C3A027C4756700814E10 /* common */,
+				79A74C5427C35B2900A91357 /* Services */,
+				79A74C5127C35A3100A91357 /* ViewModels */,
+				79A74C4E27C354AD00A91357 /* Models */,
+				79A74C4527C352E200A91357 /* Resources */,
+				79A74C4627C352F000A91357 /* Views */,
+				79A74C4727C3530A00A91357 /* Controllers */,
+				79A74C2327C3528A00A91357 /* Info.plist */,
+			);
+			path = KUMON_MUSIC;
+			sourceTree = "<group>";
+		};
+		79A74C2B27C3528A00A91357 /* KUMON_MUSICTests */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C2C27C3528A00A91357 /* KUMON_MUSICTests.swift */,
+			);
+			path = KUMON_MUSICTests;
+			sourceTree = "<group>";
+		};
+		79A74C3527C3528A00A91357 /* KUMON_MUSICUITests */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C3627C3528A00A91357 /* KUMON_MUSICUITests.swift */,
+				79A74C3827C3528A00A91357 /* KUMON_MUSICUITestsLaunchTests.swift */,
+			);
+			path = KUMON_MUSICUITests;
+			sourceTree = "<group>";
+		};
+		79A74C4527C352E200A91357 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C1527C3528900A91357 /* AppDelegate.swift */,
+				79A74C1727C3528900A91357 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		79A74C4627C352F000A91357 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C1E27C3528A00A91357 /* Assets.xcassets */,
+				79A74C1B27C3528900A91357 /* Main.storyboard */,
+				79A74C2027C3528A00A91357 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		79A74C4727C3530A00A91357 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C4827C3535600A91357 /* MusicTableViewController.swift */,
+				79A74C4C27C3537500A91357 /* PlayerViewController.swift */,
+				79E9C3AF27C4C02C00814E10 /* SelectedMusicViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		79A74C4E27C354AD00A91357 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C4F27C354CE00A91357 /* Music.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		79A74C5127C35A3100A91357 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C5227C35A4300A91357 /* MusicViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		79A74C5427C35B2900A91357 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				79A74C5527C35B3B00A91357 /* APIManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		79E9C3A027C4756700814E10 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				79E9C3A127C4756700814E10 /* images */,
+				79E9C3A527C4756800814E10 /* musics */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		79E9C3A127C4756700814E10 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				79E9C3A227C4756700814E10 /* TEST003.png */,
+				79E9C3A327C4756700814E10 /* TEST002.png */,
+				79E9C3A427C4756800814E10 /* TEST001.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		79E9C3A527C4756800814E10 /* musics */ = {
+			isa = PBXGroup;
+			children = (
+				79E9C3A627C4756800814E10 /* TEST001.mp3 */,
+				79E9C3A727C4756800814E10 /* TEST003.mp3 */,
+				79E9C3A827C4756800814E10 /* TEST002.mp3 */,
+			);
+			path = musics;
+			sourceTree = "<group>";
+		};
+		D9DE430AC1A333817FC6A4F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				520249EEDCF74CB3B332BA3C /* Pods-KUMON_MUSIC.debug.xcconfig */,
+				28C84DF89513AAC674576B93 /* Pods-KUMON_MUSIC.release.xcconfig */,
+				926E768582A5F92C8EAC3266 /* Pods-KUMON_MUSIC-KUMON_MUSICUITests.debug.xcconfig */,
+				3DD8CE7A9729F07C12D9B861 /* Pods-KUMON_MUSIC-KUMON_MUSICUITests.release.xcconfig */,
+				45875A500DF589D0684B27B7 /* Pods-KUMON_MUSICTests.debug.xcconfig */,
+				014D116D3B1E7645ABDE5A59 /* Pods-KUMON_MUSICTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79A74C1127C3528900A91357 /* KUMON_MUSIC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79A74C3C27C3528A00A91357 /* Build configuration list for PBXNativeTarget "KUMON_MUSIC" */;
+			buildPhases = (
+				8AC5AC0462ED60A5E349BD58 /* [CP] Check Pods Manifest.lock */,
+				79A74C0E27C3528900A91357 /* Sources */,
+				79A74C0F27C3528900A91357 /* Frameworks */,
+				79A74C1027C3528900A91357 /* Resources */,
+				AB5A7BE253FB37FF41E983E9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KUMON_MUSIC;
+			productName = KUMON_MUSIC;
+			productReference = 79A74C1227C3528900A91357 /* KUMON_MUSIC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79A74C2727C3528A00A91357 /* KUMON_MUSICTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79A74C3F27C3528A00A91357 /* Build configuration list for PBXNativeTarget "KUMON_MUSICTests" */;
+			buildPhases = (
+				846C37B7821A3DC4ED003687 /* [CP] Check Pods Manifest.lock */,
+				79A74C2427C3528A00A91357 /* Sources */,
+				79A74C2527C3528A00A91357 /* Frameworks */,
+				79A74C2627C3528A00A91357 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79A74C2A27C3528A00A91357 /* PBXTargetDependency */,
+			);
+			name = KUMON_MUSICTests;
+			productName = KUMON_MUSICTests;
+			productReference = 79A74C2827C3528A00A91357 /* KUMON_MUSICTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		79A74C3127C3528A00A91357 /* KUMON_MUSICUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79A74C4227C3528A00A91357 /* Build configuration list for PBXNativeTarget "KUMON_MUSICUITests" */;
+			buildPhases = (
+				26AAB0FBC495FA7184AFBD7A /* [CP] Check Pods Manifest.lock */,
+				79A74C2E27C3528A00A91357 /* Sources */,
+				79A74C2F27C3528A00A91357 /* Frameworks */,
+				79A74C3027C3528A00A91357 /* Resources */,
+				0525799194362AE3B65E5AB3 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79A74C3427C3528A00A91357 /* PBXTargetDependency */,
+			);
+			name = KUMON_MUSICUITests;
+			productName = KUMON_MUSICUITests;
+			productReference = 79A74C3227C3528A00A91357 /* KUMON_MUSICUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79A74C0A27C3528900A91357 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					79A74C1127C3528900A91357 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					79A74C2727C3528A00A91357 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 79A74C1127C3528900A91357;
+					};
+					79A74C3127C3528A00A91357 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 79A74C1127C3528900A91357;
+					};
+				};
+			};
+			buildConfigurationList = 79A74C0D27C3528900A91357 /* Build configuration list for PBXProject "KUMON_MUSIC" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 79A74C0927C3528900A91357;
+			productRefGroup = 79A74C1327C3528900A91357 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79A74C1127C3528900A91357 /* KUMON_MUSIC */,
+				79A74C2727C3528A00A91357 /* KUMON_MUSICTests */,
+				79A74C3127C3528A00A91357 /* KUMON_MUSICUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79A74C1027C3528900A91357 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79E9C3AE27C4756800814E10 /* TEST002.mp3 in Resources */,
+				79A74C2227C3528A00A91357 /* LaunchScreen.storyboard in Resources */,
+				79E9C3A927C4756800814E10 /* TEST003.png in Resources */,
+				79E9C3AA27C4756800814E10 /* TEST002.png in Resources */,
+				79E9C3AB27C4756800814E10 /* TEST001.png in Resources */,
+				79E9C3AD27C4756800814E10 /* TEST003.mp3 in Resources */,
+				79E9C3AC27C4756800814E10 /* TEST001.mp3 in Resources */,
+				79A74C1F27C3528A00A91357 /* Assets.xcassets in Resources */,
+				79A74C1D27C3528900A91357 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A74C2627C3528A00A91357 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A74C3027C3528A00A91357 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0525799194362AE3B65E5AB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KUMON_MUSIC-KUMON_MUSICUITests/Pods-KUMON_MUSIC-KUMON_MUSICUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KUMON_MUSIC-KUMON_MUSICUITests/Pods-KUMON_MUSIC-KUMON_MUSICUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KUMON_MUSIC-KUMON_MUSICUITests/Pods-KUMON_MUSIC-KUMON_MUSICUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26AAB0FBC495FA7184AFBD7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KUMON_MUSIC-KUMON_MUSICUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		846C37B7821A3DC4ED003687 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KUMON_MUSICTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AC5AC0462ED60A5E349BD58 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KUMON_MUSIC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB5A7BE253FB37FF41E983E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KUMON_MUSIC/Pods-KUMON_MUSIC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KUMON_MUSIC/Pods-KUMON_MUSIC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KUMON_MUSIC/Pods-KUMON_MUSIC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79A74C0E27C3528900A91357 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79A74C5627C35B3B00A91357 /* APIManager.swift in Sources */,
+				79A74C4927C3535600A91357 /* MusicTableViewController.swift in Sources */,
+				79A74C5327C35A4300A91357 /* MusicViewModel.swift in Sources */,
+				79E9C3B027C4C02C00814E10 /* SelectedMusicViewController.swift in Sources */,
+				79A74C1627C3528900A91357 /* AppDelegate.swift in Sources */,
+				79A74C1827C3528900A91357 /* SceneDelegate.swift in Sources */,
+				79A74C4D27C3537500A91357 /* PlayerViewController.swift in Sources */,
+				79A74C5027C354CE00A91357 /* Music.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A74C2427C3528A00A91357 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79A74C2D27C3528A00A91357 /* KUMON_MUSICTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A74C2E27C3528A00A91357 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79A74C3727C3528A00A91357 /* KUMON_MUSICUITests.swift in Sources */,
+				79A74C3927C3528A00A91357 /* KUMON_MUSICUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79A74C2A27C3528A00A91357 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79A74C1127C3528900A91357 /* KUMON_MUSIC */;
+			targetProxy = 79A74C2927C3528A00A91357 /* PBXContainerItemProxy */;
+		};
+		79A74C3427C3528A00A91357 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79A74C1127C3528900A91357 /* KUMON_MUSIC */;
+			targetProxy = 79A74C3327C3528A00A91357 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79A74C1B27C3528900A91357 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A74C1C27C3528900A91357 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		79A74C2027C3528A00A91357 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A74C2127C3528A00A91357 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79A74C3A27C3528A00A91357 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		79A74C3B27C3528A00A91357 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		79A74C3D27C3528A00A91357 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 520249EEDCF74CB3B332BA3C /* Pods-KUMON_MUSIC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AF29P2AX2D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KUMON_MUSIC/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.mcnc.jaewook.debug.second;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Jaewook base debug second";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79A74C3E27C3528A00A91357 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28C84DF89513AAC674576B93 /* Pods-KUMON_MUSIC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AF29P2AX2D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KUMON_MUSIC/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.mcnc.jaewook.debug.second;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Jaewook base debug second";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		79A74C4027C3528A00A91357 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45875A500DF589D0684B27B7 /* Pods-KUMON_MUSICTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3V7CV8375;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jaewook.KUMON-MUSICTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KUMON_MUSIC.app/KUMON_MUSIC";
+			};
+			name = Debug;
+		};
+		79A74C4127C3528A00A91357 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 014D116D3B1E7645ABDE5A59 /* Pods-KUMON_MUSICTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3V7CV8375;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jaewook.KUMON-MUSICTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KUMON_MUSIC.app/KUMON_MUSIC";
+			};
+			name = Release;
+		};
+		79A74C4327C3528A00A91357 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 926E768582A5F92C8EAC3266 /* Pods-KUMON_MUSIC-KUMON_MUSICUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3V7CV8375;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jaewook.KUMON-MUSICUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KUMON_MUSIC;
+			};
+			name = Debug;
+		};
+		79A74C4427C3528A00A91357 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD8CE7A9729F07C12D9B861 /* Pods-KUMON_MUSIC-KUMON_MUSICUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3V7CV8375;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jaewook.KUMON-MUSICUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KUMON_MUSIC;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79A74C0D27C3528900A91357 /* Build configuration list for PBXProject "KUMON_MUSIC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79A74C3A27C3528A00A91357 /* Debug */,
+				79A74C3B27C3528A00A91357 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79A74C3C27C3528A00A91357 /* Build configuration list for PBXNativeTarget "KUMON_MUSIC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79A74C3D27C3528A00A91357 /* Debug */,
+				79A74C3E27C3528A00A91357 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79A74C3F27C3528A00A91357 /* Build configuration list for PBXNativeTarget "KUMON_MUSICTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79A74C4027C3528A00A91357 /* Debug */,
+				79A74C4127C3528A00A91357 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79A74C4227C3528A00A91357 /* Build configuration list for PBXNativeTarget "KUMON_MUSICUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79A74C4327C3528A00A91357 /* Debug */,
+				79A74C4427C3528A00A91357 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79A74C0A27C3528900A91357 /* Project object */;
+}

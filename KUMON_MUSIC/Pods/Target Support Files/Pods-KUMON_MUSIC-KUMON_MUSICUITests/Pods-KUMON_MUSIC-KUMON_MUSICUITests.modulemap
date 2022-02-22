@@ -1,0 +1,6 @@
+framework module Pods_KUMON_MUSIC_KUMON_MUSICUITests {
+  umbrella header "Pods-KUMON_MUSIC-KUMON_MUSICUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
