@@ -23,6 +23,7 @@ class MusicTableViewController: UITableViewController {
         tableView.dataSource = nil
         setUp()
     }
+    
 }
 
 extension MusicTableViewController{
@@ -36,7 +37,7 @@ extension MusicTableViewController{
         
         musicViewModel.musicData
             .drive(tableView.rx.items(cellIdentifier: "allMusicCell")){ _, music, cell in
-                if self.musicViewModel.musicIndexList.value.contains(music.name) {
+                if self.musicViewModel.musicIndexList.value.contains(music.index) {
                     cell.imageView?.image = UIImage(systemName: "play.fill")
                 } else {
                     cell.imageView?.image = UIImage(systemName: "play")
@@ -49,11 +50,11 @@ extension MusicTableViewController{
             .subscribe(onNext: { model in
                 print(model.name)
                 var value = self.musicViewModel.musicIndexList.value
-                if value.contains(model.name) {
-                    value.remove(at: value.firstIndex(of: model.name)!)
+                if value.contains(model.index) {
+                    value.remove(at: value.firstIndex(of: model.index)!)
                     self.musicViewModel.musicIndexList.accept(value)
                 } else {
-                    value.append(model.name)
+                    value.append(model.index)
                     self.musicViewModel.musicIndexList.accept(value)
                 }
                 print(self.musicViewModel.musicIndexList.value)

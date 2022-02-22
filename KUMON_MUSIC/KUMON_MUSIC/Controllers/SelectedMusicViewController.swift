@@ -22,7 +22,7 @@ class SelectedMusicViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = nil
         tableView.dataSource = nil
-        popupMusicView.isHidden = true
+        // popupMusicView.isHidden = true
         setUp()
     }
 }
@@ -36,18 +36,18 @@ extension SelectedMusicViewController{
             }
             .disposed(by: disposeBag)
         
-        musicViewModel.currentMusicTime
-            .subscribe(onNext: { time in
-                if time != 0.0 {
-                    self.popupMusicView.isHidden = false
-                }
+//        musicViewModel.currentMusicTime
+//            .subscribe(onNext: { time in
+//                if time != 0.0 {
+//                    self.popupMusicView.isHidden = false
+//                }
+//            })
+//            .disposed(by: disposeBag)
+        tableView.rx.modelSelected(Music.self)
+            .subscribe(onNext: { music in
+                self.musicViewModel.currentMusicIndex = BehaviorRelay<Int>(value: music.index)
+                self.performSegue(withIdentifier: "playMusic", sender: music)
             })
-            .disposed(by: disposeBag)
-        Observable.zip(tableView.rx.modelSelected(Music.self), tableView.rx.itemSelected)
-            .bind{ [weak self] (music, indexPath) in
-                self!.musicViewModel.currentMusicIndex = BehaviorRelay<Int>(value: indexPath.row)
-                self!.performSegue(withIdentifier: "playMusic", sender: music)
-            }
             .disposed(by: disposeBag)
         
     }
@@ -60,8 +60,7 @@ extension SelectedMusicViewController{
                 return
             }
             let vc = segue.destination as! PlayerViewController
-            vc.musicViewModel.currentMusic = BehaviorRelay<Music>(value: music)
-            
+            vc.musicViewModel.currentMusicIndex = BehaviorRelay<Int>(value: music.index)
         }
     }
 }

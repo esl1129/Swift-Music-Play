@@ -17,12 +17,14 @@ struct MusicArr: Codable{
     }
 }
 struct Music: Codable {
+    let index: Int
     let name: String
     let artistName: String
     let trackName: String
     let coverName: String
     
     enum CodingKeys: String, CodingKey{
+        case index = "index"
         case name = "music_name"
         case artistName = "artist_name"
         case trackName = "track_name"
@@ -30,6 +32,7 @@ struct Music: Codable {
     }
     
     init(){
+        self.index = 0
         self.name = ""
         self.artistName = ""
         self.trackName = ""

@@ -14,12 +14,14 @@ let JSON = """
     "status" : true,
     "music_info" : [
         {
+        "index" : 1,
         "music_name" : "TEST001",
         "artist_name" : "ARTIST001",
         "track_name" : "TEST001",
         "cover_name" : "TEST001"
         },
         {
+        "index" : 2,
         "music_name" : "TEST002",
         "artist_name" : "ARTIST002",
         "track_name" : "TEST002",
@@ -27,10 +29,19 @@ let JSON = """
 
         },
         {
+        "index" : 3,
         "music_name" : "TEST003",
         "artist_name" : "ARTIST003",
         "track_name" : "TEST003",
         "cover_name" : "TEST003"
+
+        },
+        {
+        "index" : 4,
+        "music_name" : "TEST004",
+        "artist_name" : "ARTIST004",
+        "track_name" : "TEST004",
+        "cover_name" : "TEST004"
 
         }
     ]
@@ -60,13 +71,25 @@ extension APIManager {
         }
     }
     
-    func getSelectedMusicList(_ list: [String]) -> Observable<[Music]>{
+    func getSelectedMusicList(_ list: [Int]) -> Observable<[Music]>{
         return Observable.create { observer -> Disposable in
             
             let dataJSON = JSON.data(using: .utf8)!
             // let dataJSON = try JSONSerialization.data(withJSONObject: [], options: .prettyPrinted)
             let getInstanceData = try? JSONDecoder().decode(MusicArr.self, from: dataJSON)
-            observer.onNext(getInstanceData!.MusicInfo.filter{list.contains($0.name)})
+            observer.onNext(getInstanceData!.MusicInfo.filter{list.contains($0.index)})
+            observer.onCompleted()
+            
+            return Disposables.create()
+        }
+    }
+    func getCurrentMusic(_ index: Int) -> Observable<Music>{
+        return Observable.create { observer -> Disposable in
+            
+            let dataJSON = JSON.data(using: .utf8)!
+            // let dataJSON = try JSONSerialization.data(withJSONObject: [], options: .prettyPrinted)
+            let getInstanceData = try? JSONDecoder().decode(MusicArr.self, from: dataJSON)
+            observer.onNext(getInstanceData!.MusicInfo.filter{$0.index == index}.first ?? Music())
             observer.onCompleted()
             
             return Disposables.create()

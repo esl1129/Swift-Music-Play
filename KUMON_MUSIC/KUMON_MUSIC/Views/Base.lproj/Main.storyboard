@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="1025" y="-68"/>
         </scene>
-        <!--Player View Controller-->
+        <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" customClass="PlayerViewController" customModule="KUMON_MUSIC" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playpause.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="x4J-LE-50y">
-                                <rect key="frame" x="32" y="30.5" width="350" height="329.5"/>
+                                <rect key="frame" x="32" y="50.5" width="350" height="329.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <color key="tintColor" name="point"/>
                                 <constraints>
@@ -48,7 +48,7 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="80"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1a-nA-63j">
-                                <rect key="frame" x="20" y="385" width="374" height="65"/>
+                                <rect key="frame" x="20" y="420" width="374" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhJ-eD-9Yy">
                                         <rect key="frame" x="0.0" y="3" width="374" height="29"/>
@@ -75,30 +75,30 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-He-6WS">
-                                <rect key="frame" x="40" y="495" width="334" height="298"/>
+                                <rect key="frame" x="40" y="585" width="334" height="47.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuffle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ii2-U5-fPq">
-                                        <rect key="frame" x="0.0" y="2.5" width="34.5" height="293.5"/>
+                                        <rect key="frame" x="0.0" y="2.5" width="34.5" height="43"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="248" verticalHuggingPriority="251" image="backward.end.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gpE-mr-afg">
-                                        <rect key="frame" x="39.5" y="4.5" width="105.5" height="289"/>
+                                        <rect key="frame" x="39.5" y="4.5" width="105.5" height="38.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="pause.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Rb1-Mg-I7k">
-                                        <rect key="frame" x="150" y="5.5" width="34" height="287.5"/>
+                                        <rect key="frame" x="150" y="5.5" width="34" height="37"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="248" verticalHuggingPriority="251" image="forward.end.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oQA-6N-HIm">
-                                        <rect key="frame" x="189" y="4.5" width="107.5" height="289"/>
+                                        <rect key="frame" x="189" y="4.5" width="107.5" height="38.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repeat" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bfV-Zk-TAX">
-                                        <rect key="frame" x="301.5" y="2.5" width="32.5" height="293"/>
+                                        <rect key="frame" x="301.5" y="2.5" width="32.5" height="42.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                     </imageView>
@@ -110,9 +110,9 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1x-mA-wKy">
-                                <rect key="frame" x="20" y="460" width="374" height="30"/>
+                                <rect key="frame" x="20" y="520" width="374" height="30"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ddt-4i-POD">
+                                    <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ddt-4i-POD">
                                         <rect key="frame" x="-2" y="0.0" width="378" height="31"/>
                                         <color key="minimumTrackTintColor" name="point"/>
                                     </slider>
@@ -130,21 +130,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="D1x-mA-wKy" firstAttribute="top" secondItem="c1a-nA-63j" secondAttribute="bottom" constant="10" id="5UB-Lp-5LR"/>
+                            <constraint firstItem="D1x-mA-wKy" firstAttribute="top" secondItem="c1a-nA-63j" secondAttribute="bottom" constant="35" id="4Zu-P0-6VV"/>
                             <constraint firstItem="fyk-He-6WS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="7ju-Uf-0Kn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D1x-mA-wKy" secondAttribute="trailing" constant="20" id="Fud-UF-RnR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fyk-He-6WS" secondAttribute="bottom" constant="15" id="SGx-BN-fRU"/>
                             <constraint firstItem="D1x-mA-wKy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VeY-9Q-6oy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c1a-nA-63j" secondAttribute="trailing" constant="20" id="X14-84-KoL"/>
-                            <constraint firstItem="x4J-LE-50y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="blN-C3-Nm2"/>
-                            <constraint firstItem="fyk-He-6WS" firstAttribute="top" secondItem="D1x-mA-wKy" secondAttribute="bottom" constant="5" id="c9d-fF-sdf"/>
+                            <constraint firstItem="x4J-LE-50y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="blN-C3-Nm2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fyk-He-6WS" secondAttribute="trailing" constant="40" id="dGx-ff-YPn"/>
                             <constraint firstItem="x4J-LE-50y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eLG-UT-NL8"/>
                             <constraint firstItem="c1a-nA-63j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gIS-bJ-gQ2"/>
-                            <constraint firstItem="c1a-nA-63j" firstAttribute="top" secondItem="x4J-LE-50y" secondAttribute="bottom" constant="15" id="qcf-Jq-wLD"/>
+                            <constraint firstItem="c1a-nA-63j" firstAttribute="top" secondItem="x4J-LE-50y" secondAttribute="bottom" constant="30" id="iCO-aP-VDn"/>
+                            <constraint firstItem="fyk-He-6WS" firstAttribute="top" secondItem="D1x-mA-wKy" secondAttribute="bottom" constant="35" id="lYc-dK-eL0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="YJv-1o-Vmb">
+                    <navigationItem key="navigationItem" title="Now Playing" largeTitleDisplayMode="never" id="YJv-1o-Vmb">
                         <barButtonItem key="backBarButtonItem" title=" " id="Cvg-T4-cVV"/>
                     </navigationItem>
                     <connections>

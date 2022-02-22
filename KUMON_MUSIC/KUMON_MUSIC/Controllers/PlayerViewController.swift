@@ -19,7 +19,7 @@ let timer = Driver<Int>.interval(.seconds(1)).map { _ in
 class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     let musicViewModel = MusicViewModel()
     let disposeBag = DisposeBag()
-    var song = ""
+    var songUrl: URL?
     var player: AVAudioPlayer!
     var isRunningSecond = false
     
@@ -35,11 +35,14 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var durationSlider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
         remoteCommandCenterSetting()
-        configure()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        print(self.musicViewModel.currentMusicIndex.value)
+        setUp()
+        configure()
+        playMusic()
+    }
 }
 
 // MARK: - SetUp
@@ -51,11 +54,13 @@ extension PlayerViewController{
                 self.playList = $0
             })
             .disposed(by: disposeBag)
-        musicViewModel.currentMusicIndex
-            .subscribe(onNext: { index in
-                self.musicViewModel.currentMusic.accept(self.playList[index])
-            })
-            .disposed(by: disposeBag)
+        
+//        musicViewModel.currentMusicIndex
+//            .subscribe(onNext: { index in
+//                self.musicViewModel.currentMusic.accept(self.playList[index])
+//            })
+//            .disposed(by: disposeBag)
+        
         timer.asObservable()
             .subscribe(onNext: { [weak self] value in
                 if self!.isRunningSecond {
@@ -71,10 +76,10 @@ extension PlayerViewController{
                 }
             })
             .disposed(by: disposeBag)
+        
         musicViewModel.currentMusic
-            .subscribe(onNext: { music in
-                //                 let url = Bundle.main.url(forResource: music.coverName, withExtension: "png", subdirectory: "common/images")
-                
+            .asDriver()
+            .drive(onNext: { music in
                 let url = Bundle.main.url(forResource: music.coverName, withExtension: "png")
                 if let url = url {
                     do {
@@ -84,11 +89,14 @@ extension PlayerViewController{
                     } catch let error {
                         print(error.localizedDescription)
                     }
+                } else {
+                    self.coverImage.image = UIImage(systemName: "playpause.fill")
                 }
                 
+                self.songUrl = Bundle.main.url(forResource: music.trackName, withExtension: "mp3")
+
                 self.titleLabel.text = music.name
                 self.artistLabel.text = music.artistName
-                self.song = music.trackName
             })
             .disposed(by: disposeBag)
         
@@ -106,24 +114,25 @@ extension PlayerViewController{
 
 // MARK: - Music Play
 extension PlayerViewController{
-    func configure(){
-        let url = Bundle.main.url(forResource: self.musicViewModel.currentMusic.value.trackName, withExtension: "mp3")
-        if let url = url {
+    func configure() -> Bool {
+        self.musicViewModel.currentMusicTime.accept(0.0)
+        if let url = songUrl {
             do {
                 player = try AVAudioPlayer(contentsOf: url)
                 player.volume = 0.1
-                playBtn.image = UIImage(systemName: "pause.fill")
-                player.play()
                 isRunningSecond = true
-                self.musicViewModel.currentMusicTime.accept(0.0)
                 self.musicViewModel.durationMusicTime.accept(Float(player.duration))
             } catch {
                 print("error")
             }
+        } else {
+            return false
         }
+        return true
     }
     
     @objc private func didTapPlayPauseButton(){
+        if player == nil { return }
         if player.isPlaying == true{
             pauseMusic()
         } else {
@@ -131,38 +140,55 @@ extension PlayerViewController{
         }
     }
     @objc private func didTapForwardButton(){
+        if player == nil { return }
         forwardMusic()
     }
     @objc private func didTapBackwardButton(){
+        if player == nil { return }
         backwardMusic()
     }
     
     func playMusic(){
+        self.isRunningSecond = true
         playBtn.image = UIImage(systemName: "pause.fill")
         player.play()
-        self.isRunningSecond = true
-        
     }
     func pauseMusic(){
-        playBtn.image = UIImage(systemName: "play.fill")
         isRunningSecond = false
+        playBtn.image = UIImage(systemName: "play.fill")
         player.pause()
     }
     
     func forwardMusic(){
-        let idx = self.musicViewModel.currentMusicIndex.value
+        if player == nil { return }
+        let id = self.musicViewModel.currentMusicIndex.value
+        let index = self.musicViewModel.musicIndexList.value.firstIndex(of: id)!
+        let newId = index == self.musicViewModel.musicIndexList.value.endIndex ? self.musicViewModel.musicIndexList.value[0] : self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.index(after: index)]
+        self.musicViewModel.currentMusicIndex.accept(newId)
+
         isRunningSecond = false
-        player.pause()
-        self.musicViewModel.currentMusicIndex.accept(idx == self.playList.count-1 ? 0 : idx+1)
-        configure()
+        pauseMusic()
+        if configure() {
+            playMusic()
+        } else {
+            forwardMusic()
+        }
     }
     
     func backwardMusic(){
-        let idx = self.musicViewModel.currentMusicIndex.value
+        if player == nil { return }
+        let id = self.musicViewModel.currentMusicIndex.value
+        let index = self.musicViewModel.musicIndexList.value.firstIndex(of: id)!
+        let newId = index == self.musicViewModel.musicIndexList.value.startIndex ? self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.count-1] : self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.index(before: index)]
+        self.musicViewModel.currentMusicIndex.accept(newId)
+
         isRunningSecond = false
-        player.pause()
-        self.musicViewModel.currentMusicIndex.accept(idx == 0 ? 0 : idx-1)
-        configure()
+        pauseMusic()
+        if configure() {
+            playMusic()
+        } else {
+            backwardMusic()
+        }
     }
     
     func remoteCommandCenterSetting() { // remote control event 받기 시작
@@ -178,7 +204,14 @@ extension PlayerViewController{
             self.pauseMusic()
             return MPRemoteCommandHandlerStatus.success
         }
-        
+        center.nextTrackCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+            self.forwardMusic()
+            return MPRemoteCommandHandlerStatus.success
+        }
+        center.previousTrackCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+            self.forwardMusic()
+            return MPRemoteCommandHandlerStatus.success
+        }
     }
     
     func remoteCommandInfoCenterSetting(_ music: Music, _ image: UIImage) {
@@ -189,7 +222,11 @@ extension PlayerViewController{
         nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { size in
             return image
         })
-        if player != nil {
+        if player == nil {
+            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = 0.0 // 콘텐츠 재생 시간에 따른 progressBar 초기화
+            nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = 0.0 // 콘텐츠 현재 재생시간
+            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = 0.0
+        } else {
             nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player.duration // 콘텐츠 재생 시간에 따른 progressBar 초기화
             nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player.rate // 콘텐츠 현재 재생시간
             nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
