@@ -46,20 +46,18 @@ extension MusicTableViewController{
                 cell.detailTextLabel?.text = music.artistName
             }
             .disposed(by: disposeBag)
-        tableView.rx.modelSelected(Music.self)
-            .subscribe(onNext: { model in
-                print(model.name)
-                var value = self.musicViewModel.musicIndexList.value
-                if value.contains(model.index) {
-                    value.remove(at: value.firstIndex(of: model.index)!)
-                    self.musicViewModel.musicIndexList.accept(value)
-                } else {
-                    value.append(model.index)
-                    self.musicViewModel.musicIndexList.accept(value)
-                }
-                print(self.musicViewModel.musicIndexList.value)
-            })
-            .disposed(by: disposeBag)
+//        tableView.rx.modelSelected(Music.self)
+//            .subscribe(onNext: { model in
+//                var value = self.musicViewModel.musicIndexList.value
+//                if value.contains(model.index) {
+//                    value.remove(at: value.firstIndex(of: model.index)!)
+//                    self.musicViewModel.musicIndexList.accept(value)
+//                } else {
+//                    value.append(model.index)
+//                    self.musicViewModel.musicIndexList.accept(value)
+//                }
+//            })
+//            .disposed(by: disposeBag)
     }
 }
 

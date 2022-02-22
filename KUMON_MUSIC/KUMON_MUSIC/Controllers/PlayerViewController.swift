@@ -55,12 +55,6 @@ extension PlayerViewController{
             })
             .disposed(by: disposeBag)
         
-//        musicViewModel.currentMusicIndex
-//            .subscribe(onNext: { index in
-//                self.musicViewModel.currentMusic.accept(self.playList[index])
-//            })
-//            .disposed(by: disposeBag)
-        
         timer.asObservable()
             .subscribe(onNext: { [weak self] value in
                 if self!.isRunningSecond {
@@ -114,7 +108,7 @@ extension PlayerViewController{
 
 // MARK: - Music Play
 extension PlayerViewController{
-    func configure() -> Bool {
+    func configure(){
         self.musicViewModel.currentMusicTime.accept(0.0)
         if let url = songUrl {
             do {
@@ -125,10 +119,7 @@ extension PlayerViewController{
             } catch {
                 print("error")
             }
-        } else {
-            return false
         }
-        return true
     }
     
     @objc private func didTapPlayPauseButton(){
@@ -168,11 +159,7 @@ extension PlayerViewController{
 
         isRunningSecond = false
         pauseMusic()
-        if configure() {
-            playMusic()
-        } else {
-            forwardMusic()
-        }
+        playMusic()
     }
     
     func backwardMusic(){
@@ -184,11 +171,7 @@ extension PlayerViewController{
 
         isRunningSecond = false
         pauseMusic()
-        if configure() {
-            playMusic()
-        } else {
-            backwardMusic()
-        }
+        playMusic()
     }
     
     func remoteCommandCenterSetting() { // remote control event 받기 시작

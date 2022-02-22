@@ -42,7 +42,6 @@ let JSON = """
         "artist_name" : "ARTIST004",
         "track_name" : "TEST004",
         "cover_name" : "TEST004"
-
         }
     ]
 }
@@ -61,9 +60,9 @@ extension APIManager {
             //let dataJSON = try JSONSerialization.data(withJSONObject: JSON, options: .prettyPrinted)
             let getInstanceData = try? JSONDecoder().decode(MusicArr.self, from: dataJSON)
             if str == "" {
-                observer.onNext(getInstanceData!.MusicInfo)
+                observer.onNext(getInstanceData!.MusicInfo.filter{Bundle.main.url(forResource: $0.trackName, withExtension: "mp3") != nil})
             } else {
-                observer.onNext(getInstanceData!.MusicInfo.filter{$0.name.lowercased().contains(str.lowercased()) || $0.artistName.lowercased().contains(str.lowercased())})
+                observer.onNext(getInstanceData!.MusicInfo.filter{($0.name.lowercased().contains(str.lowercased()) || $0.artistName.lowercased().contains(str.lowercased())) && Bundle.main.url(forResource: $0.trackName, withExtension: "mp3") != nil})
             }
             observer.onCompleted()
             
@@ -77,7 +76,7 @@ extension APIManager {
             let dataJSON = JSON.data(using: .utf8)!
             // let dataJSON = try JSONSerialization.data(withJSONObject: [], options: .prettyPrinted)
             let getInstanceData = try? JSONDecoder().decode(MusicArr.self, from: dataJSON)
-            observer.onNext(getInstanceData!.MusicInfo.filter{list.contains($0.index)})
+            observer.onNext(getInstanceData!.MusicInfo.filter{list.contains($0.index) && Bundle.main.url(forResource: $0.trackName, withExtension: "mp3") != nil})
             observer.onCompleted()
             
             return Disposables.create()
@@ -89,7 +88,7 @@ extension APIManager {
             let dataJSON = JSON.data(using: .utf8)!
             // let dataJSON = try JSONSerialization.data(withJSONObject: [], options: .prettyPrinted)
             let getInstanceData = try? JSONDecoder().decode(MusicArr.self, from: dataJSON)
-            observer.onNext(getInstanceData!.MusicInfo.filter{$0.index == index}.first ?? Music())
+            observer.onNext(getInstanceData!.MusicInfo.filter{$0.index == index && Bundle.main.url(forResource: $0.trackName, withExtension: "mp3") != nil}.first ?? Music())
             observer.onCompleted()
             
             return Disposables.create()
