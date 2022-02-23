@@ -13,10 +13,9 @@ import RxRelay
 class MusicViewModel{
     lazy var currentMusicIndex = BehaviorRelay<Int>(value: 1)
     lazy var searchMusic = BehaviorRelay<String>(value: "")
-    lazy var currentMusicTime = BehaviorRelay<Float>(value: 0.0)
     lazy var musicIndexList = BehaviorRelay<[Int]>(value: [1,2,3])
     lazy var repeatCheck = BehaviorRelay<Int>(value: 1)
-    
+
     lazy var musicData: Driver<[Music]> = {
         return self.searchMusic.asObservable()
             .throttle(.milliseconds(200), scheduler: MainScheduler.instance)

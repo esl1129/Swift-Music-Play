@@ -35,6 +35,7 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var durationSlider: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var durationTimeLabel: UILabel!
+    
     @IBAction func scrubAudio(_ sender: Any) {
         player.stop()
         player.currentTime = TimeInterval(durationSlider.value)
@@ -43,7 +44,6 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUp()
         remoteCommandCenterSetting()
         configure()
@@ -66,15 +66,6 @@ extension PlayerViewController{
                 if let self = self, self.player != nil {
                     self.updateTime()
                     self.updateSlider()
-                }
-            })
-            .disposed(by: disposeBag)
-        musicViewModel.currentMusicTime
-            .subscribe(onNext: { time in
-                self.durationSlider.value = self.player == nil ? 0.0 : time/Float(self.player.duration)
-                if self.durationSlider.value >= 1.0 {
-                    self.durationSlider.value = 0.0
-                    self.forwardMusic()
                 }
             })
             .disposed(by: disposeBag)
@@ -118,11 +109,11 @@ extension PlayerViewController{
     }
 }
 
+
 // MARK: - Music Play
 extension PlayerViewController{
     func configure(){
         pauseMusic()
-        self.musicViewModel.currentMusicTime.accept(0.0)
         if let url = songUrl {
             do {
                 player = try AVAudioPlayer(contentsOf: url)
@@ -148,12 +139,10 @@ extension PlayerViewController{
         }
     }
     @objc private func didTapForwardButton(){
-        if player == nil { return }
         currentTimeLabel.text = "00:00"
         forwardMusic()
     }
     @objc private func didTapBackwardButton(){
-        if player == nil { return }
         currentTimeLabel.text = "00:00"
         backwardMusic()
     }
