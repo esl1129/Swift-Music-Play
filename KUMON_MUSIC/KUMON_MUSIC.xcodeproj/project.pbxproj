@@ -242,9 +242,9 @@
 		79E9C3A127C4756700814E10 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				79E9C3A227C4756700814E10 /* TEST003.png */,
-				79E9C3A327C4756700814E10 /* TEST002.png */,
 				79E9C3A427C4756800814E10 /* TEST001.png */,
+				79E9C3A327C4756700814E10 /* TEST002.png */,
+				79E9C3A227C4756700814E10 /* TEST003.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -253,8 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				79E9C3A627C4756800814E10 /* TEST001.mp3 */,
-				79E9C3A727C4756800814E10 /* TEST003.mp3 */,
 				79E9C3A827C4756800814E10 /* TEST002.mp3 */,
+				79E9C3A727C4756800814E10 /* TEST003.mp3 */,
 			);
 			path = musics;
 			sourceTree = "<group>";

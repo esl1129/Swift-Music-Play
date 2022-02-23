@@ -12,7 +12,7 @@ import RxRelay
 import RxCocoa
 import MediaPlayer
 
-let timer = Driver<Int>.interval(.seconds(1)).map { _ in
+let timer = Driver<Int>.interval(.milliseconds(1)).map { _ in
     return 1
 }
 
@@ -33,15 +33,21 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var shuffleBtn: UIImageView!
     @IBOutlet weak var repeatBtn: UIImageView!
     @IBOutlet weak var durationSlider: UISlider!
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var durationTimeLabel: UILabel!
+    @IBAction func scrubAudio(_ sender: Any) {
+        player.stop()
+        player.currentTime = TimeInterval(durationSlider.value)
+        player.prepareToPlay()
+        player.play()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        remoteCommandCenterSetting()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        print(self.musicViewModel.currentMusicIndex.value)
+        
         setUp()
+        remoteCommandCenterSetting()
         configure()
-        playMusic()
+        
     }
 }
 
@@ -57,15 +63,17 @@ extension PlayerViewController{
         
         timer.asObservable()
             .subscribe(onNext: { [weak self] value in
-                if self!.isRunningSecond {
-                    self?.musicViewModel.currentMusicTime.accept((self?.musicViewModel.currentMusicTime.value)!+1.0)
+                if let self = self, self.player != nil {
+                    self.updateTime()
+                    self.updateSlider()
                 }
             })
             .disposed(by: disposeBag)
         musicViewModel.currentMusicTime
             .subscribe(onNext: { time in
-                self.durationSlider.value = time/(self.musicViewModel.durationMusicTime.value)
+                self.durationSlider.value = self.player == nil ? 0.0 : time/Float(self.player.duration)
                 if self.durationSlider.value >= 1.0 {
+                    self.durationSlider.value = 0.0
                     self.forwardMusic()
                 }
             })
@@ -80,17 +88,15 @@ extension PlayerViewController{
                         let data = NSData(contentsOf: url)
                         self.coverImage.image = UIImage(data: data! as Data)
                         self.remoteCommandInfoCenterSetting(music, UIImage(data: data! as Data)!)
-                    } catch let error {
-                        print(error.localizedDescription)
                     }
                 } else {
                     self.coverImage.image = UIImage(systemName: "playpause.fill")
                 }
                 
                 self.songUrl = Bundle.main.url(forResource: music.trackName, withExtension: "mp3")
-
                 self.titleLabel.text = music.name
                 self.artistLabel.text = music.artistName
+                self.configure()
             })
             .disposed(by: disposeBag)
         
@@ -103,19 +109,30 @@ extension PlayerViewController{
         let backwardTap = UITapGestureRecognizer(target: self, action: #selector(didTapBackwardButton))
         backwardBtn.addGestureRecognizer(backwardTap)
         backwardBtn.isUserInteractionEnabled = true
+        let repeatTap = UITapGestureRecognizer(target: self, action: #selector(didTapRepeatButton))
+        repeatBtn.addGestureRecognizer(repeatTap)
+        repeatBtn.isUserInteractionEnabled = true
+        let shuffleTap = UITapGestureRecognizer(target: self, action: #selector(didTapShuffleButton))
+        shuffleBtn.addGestureRecognizer(shuffleTap)
+        shuffleBtn.isUserInteractionEnabled = true
     }
 }
 
 // MARK: - Music Play
 extension PlayerViewController{
     func configure(){
+        pauseMusic()
         self.musicViewModel.currentMusicTime.accept(0.0)
         if let url = songUrl {
             do {
                 player = try AVAudioPlayer(contentsOf: url)
-                player.volume = 0.1
+                player.volume = 0.5
+                durationSlider.maximumValue = Float(player.duration)
                 isRunningSecond = true
-                self.musicViewModel.durationMusicTime.accept(Float(player.duration))
+                let du = Int(self.player.duration)
+                let str = String(format: "%02d:%02d", du/60, du%60)
+                self.durationTimeLabel.text = str
+                playMusic()
             } catch {
                 print("error")
             }
@@ -132,46 +149,102 @@ extension PlayerViewController{
     }
     @objc private func didTapForwardButton(){
         if player == nil { return }
+        currentTimeLabel.text = "00:00"
         forwardMusic()
     }
     @objc private func didTapBackwardButton(){
         if player == nil { return }
+        currentTimeLabel.text = "00:00"
         backwardMusic()
     }
-    
+    @objc private func didTapRepeatButton(){
+        switch self.musicViewModel.repeatCheck.value {
+        case 0:
+            self.musicViewModel.repeatCheck.accept(1)
+            repeatBtn.tintColor = UIColor.label
+            repeatBtn.image = UIImage(systemName: "repeat")
+        case 1:
+            self.musicViewModel.repeatCheck.accept(2)
+            repeatBtn.tintColor = UIColor.label
+            repeatBtn.image = UIImage(systemName: "repeat.1")
+        case 2:
+            self.musicViewModel.repeatCheck.accept(0)
+            repeatBtn.tintColor = UIColor.gray
+            repeatBtn.image = UIImage(systemName: "repeat")
+        default:
+            return
+        }
+    }
+    @objc private func didTapShuffleButton(){
+        if shuffleBtn.tintColor == UIColor.gray{
+            shuffleBtn.tintColor = UIColor.label
+        } else {
+            shuffleBtn.tintColor = UIColor.gray
+        }
+    }
     func playMusic(){
+        if player == nil { return }
         self.isRunningSecond = true
         playBtn.image = UIImage(systemName: "pause.fill")
         player.play()
+        try? AVAudioSession.sharedInstance().setActive(true)
+        
     }
     func pauseMusic(){
+        if player == nil { return }
         isRunningSecond = false
         playBtn.image = UIImage(systemName: "play.fill")
         player.pause()
+        try? AVAudioSession.sharedInstance().setActive(false)
+    }
+    func stopMusic(){
+        if player == nil { return }
+        isRunningSecond = false
+        playBtn.image = UIImage(systemName: "play.fill")
+        player.stop()
+        try? AVAudioSession.sharedInstance().setActive(false)
+    }
+    func updateTime() {
+        if player == nil { return }
+        let currentTime = Int(player.currentTime)
+        let duration = Int(player.duration)
+        let total = currentTime - duration
+        let totalString = String(total)
+        
+        let minutes = currentTime/60
+        let seconds = currentTime - minutes / 60
+        
+        currentTimeLabel.text = NSString(format: "%02d:%02d", minutes,seconds) as String
+    }
+    func updateSlider() {
+        if player == nil { return }
+        durationSlider.value = Float(player.currentTime)
     }
     
     func forwardMusic(){
         if player == nil { return }
         let id = self.musicViewModel.currentMusicIndex.value
-        let index = self.musicViewModel.musicIndexList.value.firstIndex(of: id)!
-        let newId = index == self.musicViewModel.musicIndexList.value.endIndex ? self.musicViewModel.musicIndexList.value[0] : self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.index(after: index)]
-        self.musicViewModel.currentMusicIndex.accept(newId)
-
+        if self.musicViewModel.repeatCheck.value == 2 {
+            self.musicViewModel.currentMusicIndex.accept(id)
+        } else {
+            let index = self.musicViewModel.musicIndexList.value.firstIndex(of: id)!
+            let newId = index == self.musicViewModel.musicIndexList.value.endIndex-1 ? self.musicViewModel.musicIndexList.value[0] : self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.index(after: index)]
+            self.musicViewModel.currentMusicIndex.accept(newId)
+        }
         isRunningSecond = false
-        pauseMusic()
-        playMusic()
     }
     
     func backwardMusic(){
         if player == nil { return }
         let id = self.musicViewModel.currentMusicIndex.value
-        let index = self.musicViewModel.musicIndexList.value.firstIndex(of: id)!
-        let newId = index == self.musicViewModel.musicIndexList.value.startIndex ? self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.count-1] : self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.index(before: index)]
-        self.musicViewModel.currentMusicIndex.accept(newId)
-
+        if self.musicViewModel.repeatCheck.value == 2 {
+            self.musicViewModel.currentMusicIndex.accept(id)
+        } else {
+            let index = self.musicViewModel.musicIndexList.value.firstIndex(of: id)!
+            let newId = index == self.musicViewModel.musicIndexList.value.startIndex ? self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.count-1] : self.musicViewModel.musicIndexList.value[self.musicViewModel.musicIndexList.value.index(before: index)]
+            self.musicViewModel.currentMusicIndex.accept(newId)
+        }
         isRunningSecond = false
-        pauseMusic()
-        playMusic()
     }
     
     func remoteCommandCenterSetting() { // remote control event 받기 시작

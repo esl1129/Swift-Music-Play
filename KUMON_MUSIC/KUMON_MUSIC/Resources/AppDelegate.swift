@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         try? audioSession.setCategory(.playback)
         try? audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         UIApplication.shared.beginReceivingRemoteControlEvents()
+        if let theme = UserDefaults.standard.string(forKey: "theme"){
+            UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.overrideUserInterfaceStyle = theme == "dark" ? .dark : .light
+        }
         return true
     }
     

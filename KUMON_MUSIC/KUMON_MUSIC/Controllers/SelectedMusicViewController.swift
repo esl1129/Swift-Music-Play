@@ -17,6 +17,12 @@ class SelectedMusicViewController: UIViewController {
     let disposeBag = DisposeBag()
     @IBOutlet weak var popupMusicView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func changeTheme(_ sender: Any) {
+        if let theme = UserDefaults.standard.string(forKey: "theme") {
+            UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.overrideUserInterfaceStyle = theme == "dark" ? .light : .dark
+        }
+        UserDefaults.standard.set(UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.overrideUserInterfaceStyle == .dark ? "dark" : "light" , forKey: "theme")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +51,7 @@ extension SelectedMusicViewController{
 //            .disposed(by: disposeBag)
         tableView.rx.modelSelected(Music.self)
             .subscribe(onNext: { music in
-                self.musicViewModel.currentMusicIndex = BehaviorRelay<Int>(value: music.index)
-                self.performSegue(withIdentifier: "playMusic", sender: music)
+                    self.performSegue(withIdentifier: "playMusic", sender: music)
             })
             .disposed(by: disposeBag)
         
