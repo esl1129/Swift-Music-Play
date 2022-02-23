@@ -1,5 +1,4 @@
 # Swift-Music-Play
-
 # PodFile
 
 # Uncomment the next line to define a global platform for your project
@@ -10,8 +9,11 @@ target 'KUMON_MUSIC' do
   use_frameworks!
 
   # Pods for KUMON_MUSIC
+  
 pod 'RxSwift', '6.5.0'
+
 pod 'RxCocoa', '6.5.0'
+
   target 'KUMON_MUSICTests' do
     inherit! :search_paths
     # Pods for testing
